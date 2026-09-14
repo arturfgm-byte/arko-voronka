@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Воронка АРКО — как начать</title>
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --paper: #FFFFFF; --panel: #F5F5F5; --line: #D9DADA; --ink: #000000; --mute: #6F6F73; --red: #FF0514; --ok: #1E6B3A; --okbg: #DDF3E4; --warn: #7A5B00; --warnbg: #FFF1CC; --tg: #2AABEE; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 "Golos Text", "Segoe UI", system-ui, sans-serif; }
+  h1, h2, h3 { font-family: Montserrat, "Segoe UI", system-ui, sans-serif; font-weight: 700; letter-spacing: -.01em; margin: 0; }
+  h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.1; }
+  h2 { font-size: clamp(22px, 3.2vw, 30px); display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  h2::before { content: ""; width: 22px; height: 3px; background: var(--red); flex-shrink: 0; }
+  h3 { font-size: 18px; margin: 22px 0 8px; }
+  p { margin: 8px 0; }
+  a { color: var(--ink); }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
+  header { border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; gap: 16px; padding: 18px 20px; }
+  header img { height: 34px; }
+  header .brand { font-family: Montserrat, system-ui; font-weight: 700; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; }
+  header .brand span { color: var(--mute); font-weight: 600; letter-spacing: .12em; font-size: 11px; display: block; }
+  nav.top { position: sticky; top: 0; background: rgba(255,255,255,.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); z-index: 5; }
+  nav.top .wrap { display: flex; gap: 6px; overflow-x: auto; padding: 8px 20px; scrollbar-width: none; }
+  nav.top a { white-space: nowrap; text-decoration: none; font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: 20px; border: 1px solid var(--line); }
+  nav.top a:hover { border-color: var(--ink); }
+  .hero { padding: 44px 0 26px; }
+  .hero p.lead { font-size: 19px; max-width: 720px; color: #222; }
+  .hero .who { color: var(--mute); font-size: 14px; margin-top: 10px; }
+  section { padding: 28px 0 8px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 16px 0; }
+  .card { border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; background: var(--paper); }
+  .card .ico { font-size: 26px; margin-bottom: 8px; }
+  .card h3 { margin: 0 0 6px; }
+  .card.panel { background: var(--panel); border-color: transparent; }
+  .steps { list-style: none; padding: 0; margin: 14px 0; counter-reset: s; }
+  .steps li { position: relative; padding: 0 0 18px 56px; counter-increment: s; }
+  .steps li::before { content: counter(s); position: absolute; left: 0; top: -2px; width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: #fff; font: 700 17px Montserrat, system-ui; display: flex; align-items: center; justify-content: center; }
+  .steps li::after { content: ""; position: absolute; left: 18px; top: 40px; bottom: 0; width: 2px; background: var(--line); }
+  .steps li:last-child::after { display: none; }
+  .steps li b { display: block; font-size: 17px; font-family: Montserrat, system-ui; font-weight: 600; margin-bottom: 2px; }
+  .steps li .m { color: var(--mute); font-size: 14px; }
+  .two { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: start; }
+  .callout { border-left: 3px solid var(--red); background: var(--panel); padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 14px 0; }
+  .callout b { font-family: Montserrat, system-ui; font-weight: 600; }
+  code, .key { font-family: ui-monospace, Consolas, monospace; background: var(--panel); padding: 1px 6px; border-radius: 5px; font-size: 14.5px; }
+  .key { font-weight: 600; }
+  /* телефон */
+  .phone { width: 300px; max-width: 100%; margin: 0 auto; border: 3px solid #1a1a1a; border-radius: 34px; padding: 12px 10px; background: #fff; box-shadow: 0 18px 40px rgba(0,0,0,.14); }
+  .phone .bar { display: flex; justify-content: space-between; font-size: 11px; color: var(--mute); padding: 0 10px 8px; }
+  .phone .screen { border-radius: 22px; overflow: hidden; background: #fff; min-height: 420px; }
+  .phone .cap { text-align: center; color: var(--mute); font-size: 12.5px; margin-top: 12px; }
+  /* экран входа */
+  .login { padding: 34px 20px 24px; }
+  .login img { height: 28px; margin-bottom: 22px; }
+  .login label { display: block; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--mute); margin: 12px 0 4px; }
+  .login .in { border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; font-size: 14px; }
+  .login .in.f { border-color: var(--ink); }
+  .login .btn { margin-top: 18px; background: var(--red); color: #fff; text-align: center; border-radius: 8px; padding: 10px; font-weight: 600; font-size: 14px; }
+  .login .foot { margin-top: 28px; font-size: 10px; letter-spacing: .1em; color: var(--mute); }
+  .tip { position: relative; }
+  .tip .note { position: absolute; right: -8px; top: -30px; background: var(--red); color: #fff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 12px; }
+  /* чат телеграма */
+  .chat { background: #E7EBF0; padding: 10px 10px 14px; min-height: 420px; }
+  .chat .hd { background: var(--tg); color: #fff; margin: -10px -10px 10px; padding: 12px 14px; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 10px; }
+  .chat .hd i { width: 30px; height: 30px; border-radius: 50%; background: #fff; display: inline-flex; align-items: center; justify-content: center; }
+  .chat .hd i img { height: 14px; }
+  .chat .hd small { display: block; font-weight: 400; font-size: 11px; opacity: .9; }
+  .msg { max-width: 86%; padding: 8px 11px; border-radius: 14px; font-size: 13.2px; line-height: 1.4; margin: 6px 0; background: #fff; white-space: pre-line; }
+  .msg.me { margin-left: auto; background: #DCF7C5; border-bottom-right-radius: 4px; }
+  .msg.bot { border-bottom-left-radius: 4px; }
+  .msg .t { font-size: 10px; color: var(--mute); text-align: right; margin-top: 2px; }
+  .btns { display: grid; gap: 4px; margin: 4px 0 10px; max-width: 86%; }
+  .btns div { background: #fff; border: 1px solid #cfd6dd; border-radius: 8px; text-align: center; font-size: 12.5px; padding: 6px; color: #1b6fa8; }
+  .btns.row2 { grid-template-columns: 1fr 1fr; }
+  .voice { display: flex; align-items: center; gap: 8px; }
+  .voice .play { width: 26px; height: 26px; border-radius: 50%; background: #4fae4e; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; }
+  .voice .wave { flex: 1; height: 18px; background: repeating-linear-gradient(90deg, #7bbd6f 0 2px, transparent 2px 5px); border-radius: 3px; opacity: .8; }
+  /* таблицы и прочее */
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 15px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--mute); font-weight: 600; }
+  .fill { display: inline-block; font-size: 13px; padding: 2px 9px; border-radius: 10px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .fill.low { background: var(--red); color: #fff; } .fill.mid { background: var(--warnbg); color: var(--warn); } .fill.ok { background: var(--okbg); color: var(--ok); }
+  ul.plain { padding-left: 20px; margin: 8px 0; } ul.plain li { margin: 4px 0; }
+  footer { border-top: 1px solid var(--line); margin-top: 36px; padding: 22px 0 40px; color: var(--mute); font-size: 14px; }
+  footer .tag { letter-spacing: .1em; font-size: 11px; font-weight: 600; }
+  @media (max-width: 760px) { .two { grid-template-columns: 1fr; } .phone { width: 280px; } header .brand span { display: none; } }
+  @media print { nav.top { display: none; } .phone { box-shadow: none; } }
+</style>
+</head>
+<body>
+<header><div class="wrap"><img src="arko-logo.svg" alt="АРКО"><div class="brand">Воронка АРКО<span>Fit-out | СМР | Проектирование</span></div></div></header>
+<nav class="top"><div class="wrap"><a href="#chto">Что это</a><a href="#sait">1 · Сайт</a><a href="#bot">2 · Бот</a><a href="#lid">Завести лид</a><a href="#komandy">Команды</a><a href="#pravila">3 · Правила</a><a href="#pomosh">Помощь</a></div></nav>
+
+<div class="wrap">
+<div class="hero">
+  <h1>Как зайти в «Воронку»<br>и завести первый лид</h1>
+  <p class="lead">Пятнадцать минут один раз, и дальше лиды заводятся голосовым сообщением в Telegram. Ничего устанавливать не нужно.</p>
+  <div class="who">Для Сергея Овчинникова, Евгения Шишкина и Артура Булдакова · 14.09.2026</div>
+</div>
+
+<section id="chto">
+  <h2>Что это такое</h2>
+  <p>«Воронка» — наш сайт, где мы ведём все возможные заказы: от первого слуха «там вроде будут делать офис» до подписанного договора. Каждый такой возможный заказ называется <b>лид</b>. У лида есть заказчик, объект, сумма, срок подачи КП, кто ведёт и обязательно <b>следующий шаг с датой</b>.</p>
+  <div class="cards">
+    <div class="card"><div class="ico">🖥</div><h3>Сайт voronka.ar-ko.ru</h3><p>Здесь всё видно: список лидов, доска по стадиям, карточки, календарь шагов и сроков КП, сводка. Здесь же правят лиды и записывают, что сделано.</p></div>
+    <div class="card"><div class="ico">💬</div><h3>Бот в Telegram @arko_voronka_bot</h3><p>Самый быстрый способ завести лид: написали или наговорили голосом, бот разложил по полям, создал лид на сайте и спросил, чего не хватает.</p></div>
+  </div>
+  <div class="callout"><b>Совет.</b> Заводите лиды через бота, а смотрите и правьте на сайте.</div>
+</section>
+
+<section id="sait">
+  <h2>Часть 1. Первый вход на сайт</h2>
+  <p>Три минуты, делается один раз. Потом сайт вас помнит.</p>
+  <div class="two">
+    <ol class="steps">
+      <li><b>Откройте voronka.ar-ko.ru</b><span class="m">На телефоне или компьютере, в любом браузере. Можно просто набрать адрес.</span></li>
+      <li><b>Введите логин</b><span class="m">Свой, латиницей маленькими буквами. Логин пришлёт Артур Фаттахов вместе с кодом.</span></li>
+      <li><b>В поле «Пароль» введите код приглашения</b><span class="m">Шесть цифр от Артура. Пароля у вас пока нет, вместо него вводится код.</span></li>
+      <li><b>Нажмите «Войти» и придумайте свой пароль</b><span class="m">Не короче 8 знаков, два раза. Запишите его себе. На это даётся 30 минут после ввода кода.</span></li>
+      <li><b>Готово</b><span class="m">Дальше входите логином и своим паролем. Сайт запоминает вас на этом телефоне или компьютере.</span></li>
+    </ol>
+    <div class="phone"><div class="bar"><span>9:41</span><span>voronka.ar-ko.ru</span></div>
+      <div class="screen login">
+        <img src="arko-logo.svg" alt="АРКО">
+        <label>Логин</label><div class="in">shishkin</div>
+        <label>Пароль</label><div class="in f tip">••••••<span class="note">сюда — код приглашения</span></div>
+        <div class="btn">Войти</div>
+        <div class="foot">FIT-OUT | СМР | ПРОЕКТИРОВАНИЕ</div>
+      </div><div class="cap">Первый вход: вместо пароля — шестизначный код</div></div>
+  </div>
+  <div class="cards">
+    <div class="card panel"><h3>Забыли пароль</h3><p>Напишите Артуру Фаттахову, он пришлёт новый код приглашения, и вы придумаете пароль заново.</p></div>
+    <div class="card panel"><h3>Сайт на экране телефона</h3><p>Откройте сайт в браузере, нажмите «Поделиться» (iPhone) или три точки (Android) и выберите «На экран „Домой“». Появится значок, как у приложения.</p></div>
+  </div>
+</section>
+
+<section id="bot">
+  <h2>Часть 2. Бот в Telegram</h2>
+  <h3>Подключение, один раз</h3>
+  <div class="two">
+    <ol class="steps">
+      <li><b>Найдите бота</b><span class="m">В Telegram в поиске наберите <span class="key">arko_voronka_bot</span> и откройте «Воронка АРКО».</span></li>
+      <li><b>Нажмите «Начать»</b><span class="m">Кнопка внизу экрана (или «Start»). Бот ответит «Ваш номер для привязки: …».</span></li>
+      <li><b>Напишите Артуру «нажал старт»</b><span class="m">С номером ничего делать не нужно. Артур подключит вас за минуту.</span></li>
+      <li><b>Снова отправьте боту <code>/start</code></b><span class="m">Если бот поздоровался с вами по имени, всё готово. Посторонним бот не отвечает.</span></li>
+    </ol>
+    <div class="phone"><div class="bar"><span>9:41</span><span>Telegram</span></div>
+      <div class="screen chat">
+        <div class="hd"><i><img src="arko-logo.svg" alt=""></i><div>Воронка АРКО<small>бот</small></div></div>
+        <div class="msg me">/start<div class="t">9:41</div></div>
+        <div class="msg bot">Это бот воронки АРКО. Ваш номер для привязки: 985961212
+Отправьте его Артуру — он привяжет вас к вашему логину в воронке.<div class="t">9:41</div></div>
+        <div class="msg me">/start<div class="t">9:46</div></div>
+        <div class="msg bot">Здравствуйте, Евгений. Напишите или наговорите вводные о лиде: заказчик, объект, откуда пришло, сумма, срок КП — я разберу, покажу, что понял, создам лид и спрошу, чего не хватает.<div class="t">9:46</div></div>
+      </div><div class="cap">После привязки бот здоровается по имени</div></div>
+  </div>
+</section>
+
+<section id="lid">
+  <h3>Как завести лид</h3>
+  <p>Напишите боту обычным текстом всё, что знаете о возможном заказе, как рассказали бы коллеге. Или отправьте <b>голосовое</b> с тем же самым: бот распознает его и покажет текст.</p>
+  <div class="two">
+    <div>
+      <p>Чем больше скажете сразу, тем меньше вопросов будет потом. Полезно назвать:</p>
+      <ul class="plain">
+        <li>кто заказчик и что за объект: бизнес-центр, адрес, город;</li>
+        <li>площадь и вид работ: отделка, инженерка, проектирование;</li>
+        <li>откуда пришёл лид: пригласил заказчик, тендерная площадка, знакомый, брокер, наш старый заказчик;</li>
+        <li>ориентировочную сумму и срок подачи КП;</li>
+        <li>кто на стороне заказчика: имя, должность, телефон;</li>
+        <li>что вы будете делать дальше и когда: «в пятницу созвон».</li>
+      </ul>
+      <ol class="steps" style="margin-top:18px">
+        <li><b>Бот показывает «Вот что понял»</b><span class="m">Через пару секунд, списком полей.</span></li>
+        <li><b>Три кнопки под сообщением</b><span class="m"><b>✅ Создать</b> — лид появится на сайте, бот пришлёт ссылку. <b>✏️ Поправить</b> — напишите, что исправить: «сумма 200 млн, срок КП 05.10, ведёт Сергей». <b>✖ Отмена</b> — если передумали.</span></li>
+        <li><b>Бот задаёт вопросы по недостающему</b><span class="m">По одному. Где можно, варианты кнопками: просто нажмите. Где нельзя, напишите ответ текстом.</span></li>
+        <li><b>«пропустить» и «потом»</b><span class="m">«Пропустить» — этого пока не знаете, идём дальше. «Потом» — некогда, бот замолчит; вернуться можно командой <code>/fill</code>.</span></li>
+        <li><b>«Готово» и процент заполнения</b><span class="m">Лид на сайте, всё, что вы сказали, разложено по полям.</span></li>
+      </ol>
+      <div class="callout"><b>Если не назвали следующий шаг,</b> бот сам поставит «уточнить вводные по лиду» на завтра. Это не ошибка, а правило: лид без следующего шага не живёт. Поменять шаг можно на сайте в карточке, кнопка «Выполнено».</div>
+    </div>
+    <div class="phone"><div class="bar"><span>9:52</span><span>Telegram</span></div>
+      <div class="screen chat">
+        <div class="hd"><i><img src="arko-logo.svg" alt=""></i><div>Воронка АРКО<small>бот</small></div></div>
+        <div class="msg me"><div class="voice"><span class="play">▶</span><span class="wave"></span><span style="font-size:11px;color:var(--mute)">0:24</span></div><div class="t">9:52</div></div>
+        <div class="msg bot">Расслышал: пригласили посчитать отделку офиса Ромашки в БЦ Белая площадь, примерно 1500 квадратов, ориентировочно 150 миллионов, КП до 30-го, контакт Петров Иван, директор по АХО.<div class="t">9:52</div></div>
+        <div class="msg bot">Вот что понял:
+
+Заказчик: Ромашки
+Объект: БЦ Белая площадь
+Площадь, м²: 1500
+Вид работ: fit-out
+Источник: приглашение заказчика
+Сумма: 150 000 000 ₽
+Срок КП: 30.09.2026
+Контакт: Петров Иван
+Должность: директор по АХО
+
+Создать лид?<div class="t">9:52</div></div>
+        <div class="btns row2"><div>✅ Создать</div><div>✏️ Поправить</div></div>
+        <div class="msg bot">Лид создан: Ромашки — БЦ Белая площадь
+voronka.ar-ko.ru/web/#l/…
+
+Заполнено на 68%, не хватает: город, формат конкурса, тип клиента, описание<div class="t">9:53</div></div>
+        <div class="msg bot">Формат конкурса?<div class="t">9:53</div></div>
+        <div class="btns"><div>открытый тендер</div><div>закрытый тендер</div><div>переговорный</div><div>субподряд у крупного ГП</div><div>не определён</div></div>
+        <div class="btns row2"><div>пропустить</div><div>потом</div></div>
+      </div><div class="cap">Голосовое → «Вот что понял» → Создать → вопросы кнопками</div></div>
+  </div>
+</section>
+
+<section id="komandy">
+  <h3>Команды бота</h3>
+  <p>Команду отправляют боту как обычное сообщение, со знаком <code>/</code> в начале.</p>
+  <table>
+    <tr><th>Команда</th><th>Что делает</th></tr>
+    <tr><td><code>/my</code></td><td>Список ваших лидов в работе: процент заполнения, стадия, ссылка на сайт.</td></tr>
+    <tr><td><code>/fill</code></td><td>Дозаполнить последний лид, по которому остались вопросы.</td></tr>
+    <tr><td><code>/cancel</code></td><td>Сбросить текущий разговор, если что-то пошло не так, и начать заново.</td></tr>
+    <tr><td><code>/start</code></td><td>Краткая справка.</td></tr>
+  </table>
+  <div class="cards">
+    <div class="card panel"><h3>Вечернее напоминание</h3><p>По будням около 18:00 бот присылает каждому список его лидов, заполненных меньше чем на 80 %, и чего в них не хватает. Ответьте <code>/fill</code> и дозаполните за пару минут, или сделайте это на сайте.</p></div>
+    <div class="card panel"><h3>Чего бот пока не умеет</h3><p>Не меняет уже созданные лиды по сообщению («по ПСБ позвонил, ждём ответа»): это пока делается на сайте, в карточке лида кнопка «Выполнено — записать». Не удаляет лиды: ошибочный лучше закрыть с результатом «отказались сами», а совсем мусор удалит Артур.</p></div>
+  </div>
+</section>
+
+<section id="pravila">
+  <h2>Часть 3. Три правила воронки</h2>
+  <div class="cards">
+    <div class="card"><div class="ico">➜</div><h3>Всегда есть следующий шаг</h3><p>У активного лида всегда стоит следующий шаг с датой. Сделали шаг, сразу записали, что дальше и когда. Просроченный шаг подсвечивается красным, его видно всем.</p></div>
+    <div class="card"><div class="ico">◔</div><h3>Процент заполнения</h3><p>Напротив каждого лида стоит, на сколько он заполнен: <span class="fill low">30%</span> до 40, <span class="fill mid">65%</span> до 80, <span class="fill ok">100%</span> дальше. Цель: все лиды в работе зелёные. В сводке видно, у кого сколько незаполненных.</p></div>
+    <div class="card"><div class="ico">✓</div><h3>Закрывать только с результатом</h3><p>Договор; проиграли (с причиной и ценой победителя, если известна); отказались сами (с причиной); заказчик отменил; нет решения. Если заказчик отложил проект, лид не закрывают, а «усыпляют» до даты, когда стоит вернуться.</p></div>
+  </div>
+</section>
+
+<section id="pomosh">
+  <h2>Если что-то не работает</h2>
+  <p>Напишите Артуру Фаттахову: что делали, что ожидали и что получили. Скриншот очень помогает. Бот и сайт пишут журнал, по нему причина обычно находится за несколько минут.</p>
+</section>
+</div>
+
+<footer><div class="wrap"><div class="tag">АРКО · FIT-OUT | СМР | ПРОЕКТИРОВАНИЕ</div><div style="margin-top:6px">Страница только для сотрудников, поисковиками не индексируется. Логины и коды приглашения на ней не публикуются.</div></div></footer>
+</body>
+</html>
